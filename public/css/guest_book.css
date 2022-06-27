@@ -1,0 +1,31 @@
+.comment-form {
+  width: 400px;
+}
+
+.input-section {
+  display: flex;
+  align-items: center;
+  margin: 1em 0em;
+}
+
+.input-section label {
+  margin-right: 0.5em;
+  flex: 0.5;
+}
+
+.input-section input,
+.input-section textarea {
+  padding: 0.5em 0.1em;
+  flex: 1;
+}
+
+.form-controls {
+  border-top: 1px solid black;
+  margin-top: 2em;
+  padding: 1em 0;
+}
+
+.form-controls input {
+  padding: 0.5em 1em;
+  font-size: 1em;
+}

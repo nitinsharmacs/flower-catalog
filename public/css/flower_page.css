@@ -1,0 +1,16 @@
+.flower-info {
+  display: flex;
+  align-items: center;
+}
+
+.flower-img {
+  flex: 1;
+}
+
+.flower-description {
+  flex: 1;
+}
+
+.flower-description p {
+  margin: 1em;
+}

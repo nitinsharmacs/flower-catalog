@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <title>Guest Book</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/guest_book.css">
+</head>
+
+<body>
+  <div class="page">
+    <header class="heading">
+      <a href="index.html" class="back-to-home">&lt;&lt;</a>
+      <h1>Guest Book</h1>
+    </header>
+    <div class="body">
+      <main>
+        <div class="comment-box">
+          <form action="/comment" method="get" class="comment-form">
+            <section class="input-section">
+              <label for="name">Name :</label>
+              <input type="text" id="name" name="name">
+            </section>
+            <section class="input-section">
+              <label for="comment">Comment :</label>
+              <textarea id="comment" name="comment"></textarea>
+            </section>
+            <section class="form-controls"><input type="submit" value="Submit"></section>
+          </form>
+        </div>
+
+        <div class="comments">
+          <div class="comment">
+            <div class="author">
+              <p>Nitin</p>
+            </div>
+            <div class="comment-text">
+              <p>This was cool</p>
+            </div>
+            <div class="timestamp">
+              <p>3/09/2022</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
