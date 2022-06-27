@@ -1,7 +1,9 @@
 ## TODO
 
-- [ ] create landing page
-- [ ] create flower pages
-- [ ] Create server
 
 ## DONE
+
+- [x] Connect to database
+- [x] create landing page
+- [x] create flower pages
+- [x] Create server

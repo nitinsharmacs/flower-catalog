@@ -1,0 +1,21 @@
+{
+  "tables": {
+    "comments": {
+      "records": [
+        {
+          "id": 1,
+          "name": "rishabh",
+          "comment": "it's refresing!!",
+          "timestamp": "2022-06-27T12:46:56.509Z"
+        },
+        {
+          "id": 2,
+          "name": "nitin",
+          "comment": "Yeah, it's refreshing.",
+          "timestamp": "2022-06-27T12:47:07.763Z"
+        }
+      ],
+      "fields": []
+    }
+  }
+}

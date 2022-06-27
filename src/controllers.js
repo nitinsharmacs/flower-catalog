@@ -1,5 +1,8 @@
 const fs = require('fs');
 const { createDiv, createParagraph } = require('./html.js');
+const { connectDb } = require('./db/db.js');
+
+const db = connectDb('./db/flower_catalog.json');
 
 const homePage = (req, res) => {
   if (req.uri !== '/') {
@@ -9,8 +12,6 @@ const homePage = (req, res) => {
 
   res.redirect('/public/index.html');
 };
-
-const comments = [];
 
 const isValidComment = (name, comment) => {
   return name !== '' && comment !== '';
@@ -22,9 +23,7 @@ const storeComment = (req, res) => {
   const comment = queryParams.get('comment');
 
   if (isValidComment(name, comment)) {
-    comments.push({
-      name, comment, timestamp: new Date()
-    });
+    db.comments.insert({ name, comment, timestamp: new Date() });
   }
 
   res.redirect('/guest-book');
@@ -68,7 +67,7 @@ const createCommentHtml = ({ name, timestamp, comment }) => {
   });
 
   const time = createParagraph({
-    content: formateDate(timestamp),
+    content: formateDate(new Date(timestamp)),
     classes: ['timestamp']
   });
 
@@ -84,8 +83,8 @@ const guestBook = (req, res) => {
       res.status(500).send('Some error occurred, please try again!');
       return;
     }
-
-    const commentsHtml = comments.slice(0).reverse().map(comment => {
+    const comments = db.comments.findMany({}).slice(0);
+    const commentsHtml = comments.reverse().map(comment => {
       return createCommentHtml(comment);
     }).join('');
 
