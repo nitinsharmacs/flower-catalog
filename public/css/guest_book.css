@@ -29,3 +29,28 @@
   padding: 0.5em 1em;
   font-size: 1em;
 }
+
+.comment {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  width: 500px;
+  margin: 1em 0;
+}
+
+.author {
+  color: gray;
+  font-size: 0.9em;
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5em;
+  text-transform: capitalize;
+}
+
+.comment-text {
+  margin: 1em 0;
+}
+
+.timestamp {
+  border-top: 1px solid gray;
+  padding-top: 0.5em;
+}
