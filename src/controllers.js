@@ -4,12 +4,15 @@ const { connectDb } = require('./db/db.js');
 
 const db = connectDb('./db/flower_catalog.json');
 
-const homePage = (req, res) => {
+const notFoundHanlder = (req, res, next) => {
   if (req.uri !== '/') {
     res.status(404).send('page not found');
     return;
   }
+  next();
+};
 
+const homePage = (req, res) => {
   res.redirect('/public/index.html');
 };
 
@@ -78,7 +81,7 @@ const createCommentHtml = ({ name, timestamp, comment }) => {
 };
 
 const guestBook = (req, res) => {
-  fs.readFile('./public/guest_book.html', 'utf8', (err, data) => {
+  fs.readFile('./public/guest_book.html', 'utf8', (err, fileContent) => {
     if (err) {
       res.status(500).send('Some error occurred, please try again!');
       return;
@@ -88,9 +91,9 @@ const guestBook = (req, res) => {
       return createCommentHtml(comment);
     }).join('');
 
-    const newGuestBook = data.replace('__COMMENTS__', commentsHtml);
-    res.sendHtml(newGuestBook);
+    const guestHtml = fileContent.replace('__COMMENTS__', commentsHtml);
+    res.sendHtml(guestHtml);
   });
 };
 
-module.exports = { homePage, storeComment, guestBook };
+module.exports = { homePage, notFoundHanlder, storeComment, guestBook };
