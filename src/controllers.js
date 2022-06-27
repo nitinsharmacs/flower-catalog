@@ -81,7 +81,7 @@ const createCommentHtml = ({ name, timestamp, comment }) => {
 };
 
 const guestBook = (req, res) => {
-  fs.readFile('./public/guest_book.html', 'utf8', (err, fileContent) => {
+  fs.readFile('./template/guest_book.html', 'utf8', (err, fileContent) => {
     if (err) {
       res.status(500).send('Some error occurred, please try again!');
       return;
