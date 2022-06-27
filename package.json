@@ -1,0 +1,24 @@
+{
+  "name": "flower-catalog-app",
+  "version": "1.0.0",
+  "description": "flower catgalog application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinsharmacs/flower-catalog.git"
+  },
+  "keywords": [
+    "flower",
+    "catalog",
+    "gallery"
+  ],
+  "author": "nitin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitinsharmacs/flower-catalog/issues"
+  },
+  "homepage": "https://github.com/nitinsharmacs/flower-catalog#readme"
+}
