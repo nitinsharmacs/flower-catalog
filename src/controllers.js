@@ -12,14 +12,20 @@ const homePage = (req, res) => {
 
 const comments = [];
 
+const isValidComment = (name, comment) => {
+  return name !== '' && comment !== '';
+};
+
 const storeComment = (req, res) => {
   const { queryParams } = req;
   const name = queryParams.get('name');
   const comment = queryParams.get('comment');
 
-  comments.push({
-    name, comment, timestamp: new Date()
-  });
+  if (isValidComment(name, comment)) {
+    comments.push({
+      name, comment, timestamp: new Date()
+    });
+  }
 
   res.redirect('/guest-book');
 };
@@ -47,7 +53,7 @@ const formateDate = (date) => {
   const formattedTime = `${hours}:${minutes}:${seconds}`;
   const formattedDate = `${day}-${month}-${year}`;
 
-  return `${formattedTime} | ${formattedDate}`;
+  return `${formattedDate} | ${formattedTime}`;
 };
 
 const createCommentHtml = ({ name, timestamp, comment }) => {

@@ -30,11 +30,16 @@
   font-size: 1em;
 }
 
+.comments {
+  border-top: 1px solid black;
+  width: 400px;
+  padding: 0.5em;
+}
+
 .comment {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5em 1em;
-  width: 500px;
   margin: 1em 0;
 }
 
