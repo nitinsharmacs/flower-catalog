@@ -1,4 +1,4 @@
-const { myServer } = require('./src/myServer.js');
+const { myServer } = require('myserver');
 const { router } = require('./src/routes.js');
 
 const main = () => {

@@ -1,5 +1,4 @@
-const { Router } = require('./router.js');
-const { serveFile } = require('./serveFiles.js');
+const { Router, serveFile } = require('myserver');
 const {
   homePage,
   notFoundHanlder,

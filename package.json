@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/nitinsharmacs/flower-catalog#readme",
   "dependencies": {
-    "lodash": "^4.17.21",
-    "mime-types": "^2.1.35"
+    "myserver": "github:nitinsharmacs/myserver"
   }
 }
