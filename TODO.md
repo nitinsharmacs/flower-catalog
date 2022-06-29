@@ -1,5 +1,6 @@
 ## TODO
 
+- [ ] Create comment entity
 - [ ] Work on water jar
 
 ## DONE

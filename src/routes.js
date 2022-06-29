@@ -14,6 +14,8 @@ router.get('/guest-book', guestBook);
 
 router.get('/comment', storeComment);
 
-router.get('/', notFoundHanlder, homePage);
+router.get('/', homePage);
+
+router.use(notFoundHanlder);
 
 module.exports = { router };
