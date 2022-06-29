@@ -4,12 +4,8 @@ const { connectDb } = require('nql');
 
 const db = connectDb('./db/flower_catalog.json');
 
-const notFoundHanlder = (req, res, next) => {
-  if (req.uri !== '/') {
-    res.status(404).send('page not found');
-    return;
-  }
-  next();
+const notFoundHanlder = (req, res) => {
+  res.status(404).send('page not found');
 };
 
 const homePage = (req, res) => {
@@ -80,19 +76,24 @@ const createCommentHtml = ({ name, timestamp, comment }) => {
   });
 };
 
+const guestHtml = (comments, template) => {
+  const commentsHtml = comments.map(comment => {
+    return createCommentHtml(comment);
+  }).join('');
+
+  return template.replace('__COMMENTS__', commentsHtml);
+};
+
 const guestBook = (req, res) => {
   fs.readFile('./template/guest_book.html', 'utf8', (err, fileContent) => {
     if (err) {
       res.status(500).send('Some error occurred, please try again!');
       return;
     }
-    const comments = db.comments.findMany({}).slice(0);
-    const commentsHtml = comments.reverse().map(comment => {
-      return createCommentHtml(comment);
-    }).join('');
 
-    const guestHtml = fileContent.replace('__COMMENTS__', commentsHtml);
-    res.sendHtml(guestHtml);
+    const comments = db.comments.findMany({}).slice(0).reverse();
+
+    res.sendHtml(guestHtml(comments, fileContent));
   });
 };
 
