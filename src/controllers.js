@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { createDiv, createParagraph } = require('./html.js');
-const { connectDb } = require('./db/db.js');
+const { connectDb } = require('nql');
 
 const db = connectDb('./db/flower_catalog.json');
 

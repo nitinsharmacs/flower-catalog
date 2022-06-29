@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/nitinsharmacs/flower-catalog#readme",
   "dependencies": {
-    "myserver": "github:nitinsharmacs/myserver"
+    "myserver": "github:nitinsharmacs/myserver",
+    "nql": "github:nitinsharmacs/nql"
   }
 }
