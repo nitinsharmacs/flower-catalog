@@ -96,4 +96,15 @@ const guestBook = (req, res) => {
   });
 };
 
-module.exports = { homePage, notFoundHanlder, storeComment, guestBook };
+const serveComments = (req, res) => {
+  const comments = db.comments.findMany({});
+  res.json(comments);
+};
+
+module.exports = {
+  homePage,
+  notFoundHanlder,
+  storeComment,
+  guestBook,
+  serveComments
+};

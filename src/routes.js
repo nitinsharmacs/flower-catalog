@@ -3,10 +3,13 @@ const {
   homePage,
   notFoundHanlder,
   storeComment,
-  guestBook
+  guestBook,
+  serveComments
 } = require('./controllers.js');
 
 const router = new Router();
+
+router.get('/comments', serveComments);
 
 router.get('/public', serveFile);
 
