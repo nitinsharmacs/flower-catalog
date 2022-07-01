@@ -17,9 +17,7 @@ const isValidComment = (name, comment) => {
 };
 
 const storeComment = (req, res) => {
-  const { queryParams } = req;
-  const name = queryParams.get('name');
-  const comment = queryParams.get('comment');
+  const { body: { name, comment } } = req;
 
   if (isValidComment(name, comment)) {
     db.comments.insert({ name, comment, timestamp: new Date() });

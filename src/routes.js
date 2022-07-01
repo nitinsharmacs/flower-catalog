@@ -1,4 +1,4 @@
-const { Router, serveFile } = require('myserver');
+const { Router, serveFile, bodyParser } = require('myserver');
 const {
   homePage,
   notFoundHanlder,
@@ -9,13 +9,15 @@ const {
 
 const router = new Router();
 
+router.use(bodyParser);
+
 router.get('/comments', serveComments);
 
 router.get('/public', serveFile);
 
 router.get('/guest-book', guestBook);
 
-router.get('/comment', storeComment);
+router.post('/add-comment', storeComment);
 
 router.get('/', homePage);
 
