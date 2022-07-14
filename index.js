@@ -1,10 +1,11 @@
-const express = require('express');
-const { router } = require('./src/routes.js');
+const { createApp } = require('./src/app.js');
+const session = require('myserver-session');
 
 const main = () => {
-  const app = express();
-
-  app.use(router);
+  const app = createApp({
+    dbPath: './db/flower_catalog.json',
+    session
+  });
 
   const PORT = 3002;
   app.listen(PORT, () => {

@@ -1,8 +1,5 @@
 const fs = require('fs');
-const { createDiv, createParagraph } = require('./html.js');
-const { connectDb } = require('nql');
-
-const db = connectDb('./db/flower_catalog.json');
+const { createDiv, createParagraph } = require('../util/html.js');
 
 const notFoundHanlder = (req, res) => {
   res.status(404).send('page not found');
@@ -16,7 +13,7 @@ const isValidComment = (name, comment) => {
   return name !== '' && comment !== '';
 };
 
-const storeComment = (req, res) => {
+const storeComment = (db) => (req, res) => {
   const { body: { name, comment } } = req;
 
   if (isValidComment(name, comment)) {
@@ -82,7 +79,7 @@ const guestHtml = (comments, template) => {
   return template.replace('__COMMENTS__', commentsHtml);
 };
 
-const guestBook = (req, res) => {
+const guestBook = (db) => (req, res) => {
   fs.readFile('./template/guest_book.html', 'utf8', (err, fileContent) => {
     if (err) {
       res.status(500).send('Some error occurred, please try again!');
@@ -96,7 +93,7 @@ const guestBook = (req, res) => {
   });
 };
 
-const serveComments = (req, res) => {
+const serveComments = (db) => (req, res) => {
   const comments = db.comments.findMany({});
   res.json(comments);
 };

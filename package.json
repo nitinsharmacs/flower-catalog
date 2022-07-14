@@ -4,7 +4,7 @@
   "description": "flower catgalog application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test",
     "start": "node index.js"
   },
   "repository": {
@@ -28,5 +28,8 @@
     "myserver-bodyparser": "github:nitinsharmacs/myserver-bodyparser",
     "myserver-session": "github:nitinsharmacs/myserver-session",
     "nql": "github:nitinsharmacs/nql"
+  },
+  "devDependencies": {
+    "supertest": "^6.2.4"
   }
 }
