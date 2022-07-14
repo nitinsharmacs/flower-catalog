@@ -91,7 +91,8 @@ const guestBook = (req, res) => {
 
     const comments = db.comments.findMany({}).slice(0).reverse();
 
-    res.sendHtml(guestHtml(comments, fileContent));
+    res.set('content-type', 'text/html');
+    res.send(guestHtml(comments, fileContent));
   });
 };
 

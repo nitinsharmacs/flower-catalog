@@ -1,4 +1,6 @@
-const { Router, serveFile, bodyParser } = require('myserver');
+const express = require('express');
+const bodyParser = require('myserver-bodyparser');
+
 const {
   homePage,
   notFoundHanlder,
@@ -7,13 +9,14 @@ const {
   serveComments
 } = require('./controllers.js');
 
-const router = new Router();
+const router = express.Router();
 
 router.use(bodyParser);
 
+router.use(express.static('public'));
+
 router.get('/comments', serveComments);
 
-router.get('/public', serveFile);
 
 router.get('/guest-book', guestBook);
 
