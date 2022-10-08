@@ -14,15 +14,14 @@ const session = () => {
     req.session.saveSession = function (cb) {
       res.set('set-cookie', 'sessionId=121');
       cb();
-    }
+    };
     next();
   };
 };
 
-
 const app = createApp({
   dbPath: testDbPath,
-  session
+  session,
 });
 
 describe('GET /comments', () => {
@@ -30,7 +29,7 @@ describe('GET /comments', () => {
     request(app)
       .get('/comments')
       .expect('content-type', 'application/json; charset=utf-8')
-      .expect(200)
+      .expect(100)
       .end((err, res) => {
         if (err) {
           return done(err);
