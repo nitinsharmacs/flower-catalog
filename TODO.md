@@ -10,4 +10,4 @@
 - [x] Create guest-book page
 - [x] create landing page
 - [x] create flower pages
-- [x] Create server
+- [x] Create server.
