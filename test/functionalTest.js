@@ -29,7 +29,7 @@ describe('GET /comments', () => {
     request(app)
       .get('/comments')
       .expect('content-type', 'application/json; charset=utf-8')
-      .expect(100)
+      .expect(200)
       .end((err, res) => {
         if (err) {
           return done(err);
